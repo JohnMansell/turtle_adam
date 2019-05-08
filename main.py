@@ -123,6 +123,56 @@ davevalues = []
 # SUM
 totalvalues = []
 
+# Write Button Text
+pen.clear()
+pen.setposition(screenMaxX - 127, 190)
+pen.write("Wavelength = " + str(wavelength), font=font_12)
+
+pen.setposition(screenMaxX - 92, 120)
+pen.write("Length = " + str(length), font=font_12)
+
+pen.setposition(screenMaxX - 93, 155)
+pen.write("+", font=font_24)
+
+pen.setposition(screenMaxX - 40, 155)
+pen.write("-", font=font_24)
+
+pen.setposition(screenMaxX - 93, 85)
+pen.write("+", font=font_24)
+
+pen.setposition(screenMaxX - 40, 85)
+pen.write("-", font=font_24)
+
+# Incident Wave
+pen.setposition(screenMaxX - 115, 47)
+pen.write("Incident", font=font_12)
+pen.setposition(screenMaxX - 105, 32)
+pen.write("Wave", font=font_12)
+
+# First Reflection
+pen.setposition(screenMaxX - 108, 8)
+pen.write("First", font=font_12)
+pen.setposition(screenMaxX - 120, -7)
+pen.write("Reflection", font=font_12)
+
+# Second Reflection
+pen.setposition(screenMaxX - 115, -35)
+pen.write("Second", font=font_12)
+pen.setposition(screenMaxX - 120, -50)
+pen.write("Reflection", font=font_12)
+
+# Third Reflection
+pen.setposition(screenMaxX - 108, -75)
+pen.write("Third", font=font_12)
+pen.setposition(screenMaxX - 120, -90)
+pen.write("Reflection", font=font_12)
+
+# Total Interference
+pen.setposition(screenMaxX - 108, -115)
+pen.write("Total", font=font_12)
+pen.setposition(screenMaxX - 133, -130)
+pen.write("Interference", font=font_12)
+
 
 # --------------------------------
 #       Get Position
@@ -299,7 +349,6 @@ while tim < 1000:
     button([screenMaxX - 50, -90], toggle_third_reflection([screenMaxX - 50, -90]), third)
     button([screenMaxX - 50, -130], toggle_sum([screenMaxX - 50, -130]), sum_turtle)
 
-    # Write Button Text
     pen.clear()
     pen.setposition(screenMaxX - 127, 190)
     pen.write("Wavelength = " + str(wavelength), font=font_12)
@@ -307,49 +356,7 @@ while tim < 1000:
     pen.setposition(screenMaxX - 92, 120)
     pen.write("Length = " + str(length), font=font_12)
 
-    pen.setposition(screenMaxX - 93, 155)
-    pen.write("+", font=font_24)
-
-    pen.setposition(screenMaxX - 40, 155)
-    pen.write("-", font=font_24)
-
-    pen.setposition(screenMaxX - 93, 85)
-    pen.write("+", font=font_24)
-
-    pen.setposition(screenMaxX - 40, 85)
-    pen.write("-", font=font_24)
-
-    # Incident Wave
-    pen.setposition(screenMaxX - 115, 47)
-    pen.write("Incident", font=font_12)
-    pen.setposition(screenMaxX - 105, 32)
-    pen.write("Wave", font=font_12)
-
-    # First Reflection
-    pen.setposition(screenMaxX - 108, 8)
-    pen.write("First", font=font_12)
-    pen.setposition(screenMaxX - 120, -7)
-    pen.write("Reflection", font=font_12)
-
-    # Second Reflection
-    pen.setposition(screenMaxX - 115, -35)
-    pen.write("Second", font=font_12)
-    pen.setposition(screenMaxX - 120, -50)
-    pen.write("Reflection", font=font_12)
-
-    # Third Reflection
-    pen.setposition(screenMaxX - 108, -75)
-    pen.write("Third", font=font_12)
-    pen.setposition(screenMaxX - 120, -90)
-    pen.write("Reflection", font=font_12)
-
-    # Total Interference
-    pen.setposition(screenMaxX - 108, -115)
-    pen.write("Total", font=font_12)
-    pen.setposition(screenMaxX - 133, -130)
-    pen.write("Interference", font=font_12)
-
-    # Dot?
+    # Line?
     pen.setposition(length - 150, -60)
     pen.pendown()
     pen.setposition(length - 150, 60)
@@ -409,22 +416,9 @@ while tim < 1000:
             total.pendown()
             totalvalues.append(y)
 
-    # for turtle in turtles[-5:]:
-    #   turtle.penup()
-    #   turtle.setposition(-150, 0)
-    #   turtle.update()
-
-    albert.penup()
-    beatrice.penup()
-    clyde.penup()
-    dave.penup()
-    total.penup()
-
-    albert.setposition(-150, 0)
-    beatrice.setposition(-150, 0)
-    clyde.setposition(-150, 0)
-    dave.setposition(-150, 0)
-    total.setposition(-150, 0)
+    for john in turtles[-5:]:
+        john.penup()
+        john.setposition(-150, 0)
 
     albert.update()
     beatrice.update()
@@ -436,8 +430,3 @@ while tim < 1000:
     tim += 1
     if tim >= np.pi * 100:
         tim = 0
-
-
-
-
-
