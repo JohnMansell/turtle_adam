@@ -39,18 +39,18 @@ font_24 = ("Calibri", 24, "normal")
 # --------------------------------
 
 # Turtle - Wavelength
-wavelength_plus_turtle  = turtle.Turtle()
+wavelength_plus_turtle = turtle.Turtle()
 wavelength_minus_turtle = turtle.Turtle()
 
 # Turtle - Length
-length_plus_turtle  = turtle.Turtle()
+length_plus_turtle = turtle.Turtle()
 length_minus_turtle = turtle.Turtle()
 
 # Turtle - Waves
 initial = turtle.Turtle()
-first   = turtle.Turtle()
-second  = turtle.Turtle()
-third   = turtle.Turtle()
+first = turtle.Turtle()
+second = turtle.Turtle()
+third = turtle.Turtle()
 
 # Turtle - Sum
 sum_turtle = turtle.Turtle()
@@ -97,11 +97,9 @@ first.color("red")
 second.color("green")
 third.color("purple")
 
-
 # Sum
 sum_turtle.color("black")
 total.color("black")
-
 
 # ABCD
 albert.color("blue")
@@ -245,6 +243,7 @@ def toggle_second_reflection(loc):
         mousex = 0
         mousey = 0
 
+
 # --------------------------------
 #       Toggle Third Reflection
 # --------------------------------
@@ -286,7 +285,7 @@ tim = 0
 while tim < 1000:
     screen.onscreenclick(getposition)
 
-# Place Buttons
+    # Place Buttons
     button([screenMaxX - 50, 150], change_wavelength(-0.5, [screenMaxX - 50, 150]), wavelength_minus_turtle)
     button([screenMaxX - 100, 150], change_wavelength(0.5, [screenMaxX - 100, 150]), wavelength_plus_turtle)
     button([screenMaxX - 50, 80], change_length(-1, [screenMaxX - 50, 80]), length_minus_turtle)
@@ -297,8 +296,7 @@ while tim < 1000:
     button([screenMaxX - 50, -90], toggle_third_reflection([screenMaxX - 50, -90]), third)
     button([screenMaxX - 50, -130], toggle_sum([screenMaxX - 50, -130]), sum_turtle)
 
-
-# Write Button Text
+    # Write Button Text
     pen.clear()
     pen.setposition(screenMaxX - 127, 190)
     pen.write("Wavelength = " + str(wavelength), font=font_12)
@@ -318,107 +316,88 @@ while tim < 1000:
     pen.setposition(screenMaxX - 40, 85)
     pen.write("-", font=font_24)
 
-# Incident Wave
+    # Incident Wave
     pen.setposition(screenMaxX - 115, 47)
     pen.write("Incident", font=font_12)
     pen.setposition(screenMaxX - 105, 32)
     pen.write("Wave", font=font_12)
 
-# First Reflection
+    # First Reflection
     pen.setposition(screenMaxX - 108, 8)
     pen.write("First", font=font_12)
     pen.setposition(screenMaxX - 120, -7)
     pen.write("Reflection", font=font_12)
 
-# Second Reflection
+    # Second Reflection
     pen.setposition(screenMaxX - 115, -35)
     pen.write("Second", font=font_12)
     pen.setposition(screenMaxX - 120, -50)
     pen.write("Reflection", font=font_12)
 
-# Third Reflection
+    # Third Reflection
     pen.setposition(screenMaxX - 108, -75)
     pen.write("Third", font=font_12)
     pen.setposition(screenMaxX - 120, -90)
     pen.write("Reflection", font=font_12)
 
-# Total Interference
+    # Total Interference
     pen.setposition(screenMaxX - 108, -115)
     pen.write("Total", font=font_12)
     pen.setposition(screenMaxX - 133, -130)
     pen.write("Interference", font=font_12)
 
-# Dot?
+    # Dot?
     pen.setposition(length - 150, -60)
     pen.pendown()
     pen.setposition(length - 150, 60)
     pen.penup()
 
-# Clear Turtles
+    # Clear Turtles
 
     for turtle in turtles[-5:]:
-      turtle.clear()
+        turtle.clear()
 
     # Albert
     if initial_state != False:
-        albervalues = []
         for i in range(1, length):
             y = albert.setposition(i - 150, 50 * np.sin(1 / wavelength * 2 * np.pi * i - 0.25 * tim))
             albert.pendown()
-            albertvalues.append(y)
 
     # Beatrice
     if first_state != False:
-        beatricevalues = []
         for i in range(1, length):
             y = beatrice.setposition(i - 150, 50 * np.sin(
                 1 / wavelength * 2 * np.pi * i + 0.25 * (tim - length * (50.3 / wavelength) + 13.2)))
             beatrice.pendown()
-            beatricevalues.append(y)
-
     # Clyde
     if second_state != False:
-        clyedvalues = []
         for i in range(1, length):
             y = clyde.setposition(i - 150, 50 * np.sin(
                 1 / wavelength * 2 * np.pi * i - 0.25 * (tim - length * (50.3 / wavelength) + 1.2)))
             clyde.pendown()
-            clydevalues.append(y)
 
     # Dave
     if third_state != False:
-        davevalues = []
         for i in range(1, length):
             y = dave.setposition(i - 150, 50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-            tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
+                tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
             dave.pendown()
-            davevalues.append(y)
 
     # Total
     if sum_state != False:
-        totalvalues = []
         for i in range(1, length):
             y = total.setposition(i - 150, 50 * np.sin(1 / wavelength * 2 * np.pi * i - 0.25 * tim) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-                                  tim - length * (50.3 / wavelength) + 13.2)) +
+                                      tim - length * (50.3 / wavelength) + 13.2)) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i - 0.25 * (
-                                  tim - length * (50.3 / wavelength) + 1.2)) +
+                                      tim - length * (50.3 / wavelength) + 1.2)) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-                                  tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
+                                      tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
             total.pendown()
-            totalvalues.append(y)
 
-    albert.penup()
-    beatrice.penup()
-    clyde.penup()
-    dave.penup()
-    total.penup()
-
-    albert.setposition(-150, 0)
-    beatrice.setposition(-150, 0)
-    clyde.setposition(-150, 0)
-    dave.setposition(-150, 0)
-    total.setposition(-150, 0)
+    for turtle in turtles[-5:]:
+        turtle.penup()
+        turtle.setposition(-150, 0)
 
     albert.update()
     beatrice.update()
