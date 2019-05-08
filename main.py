@@ -10,6 +10,11 @@ screenMaxY = screen.window_height() / 2
 
 screen.setworldcoordinates(screenMinX, screenMinY, screenMaxX, screenMaxY)
 
+pen = turtle.Turtle()
+pen.hideturtle()
+pen.color("black")
+pen.penup()
+
 # --------------------------------
 #       Initialize Variables
 # --------------------------------
@@ -33,29 +38,25 @@ font_24 = ("Calibri", 24, "normal")
 #       Initialize Turtles
 # --------------------------------
 
-# Pen
-pen = turtle.Turtle()
-pen.penup()
-
-# Wavelength
-wavelength_plus_turtle = turtle.Turtle()
+# Turtle - Wavelength
+wavelength_plus_turtle  = turtle.Turtle()
 wavelength_minus_turtle = turtle.Turtle()
 
-# Length
-length_plus_turtle = turtle.Turtle()
+# Turtle - Length
+length_plus_turtle  = turtle.Turtle()
 length_minus_turtle = turtle.Turtle()
 
-# Waves
+# Turtle - Waves
 initial = turtle.Turtle()
-first = turtle.Turtle()
-second = turtle.Turtle()
-third = turtle.Turtle()
+first   = turtle.Turtle()
+second  = turtle.Turtle()
+third   = turtle.Turtle()
 
-# Sum
+# Turtle - Sum
 sum_turtle = turtle.Turtle()
 total = turtle.Turtle()
 
-# ABCD
+# Turtle - ABCD
 albert = turtle.Turtle()
 beatrice = turtle.Turtle()
 clyde = turtle.Turtle()
@@ -65,7 +66,6 @@ dave = turtle.Turtle()
 #       Turtles Array
 # --------------------------------
 turtles = []
-turtles.append(pen)
 turtles.append(wavelength_plus_turtle)
 turtles.append(wavelength_minus_turtle)
 turtles.append(length_plus_turtle)
@@ -91,18 +91,17 @@ for turtle in turtles:
 #       Set Colors
 # --------------------------------
 
-# Pen
-pen.color("black")
-
 # Waves
 initial.color("blue")
 first.color("red")
 second.color("green")
 third.color("purple")
 
+
 # Sum
 sum_turtle.color("black")
 total.color("black")
+
 
 # ABCD
 albert.color("blue")
@@ -122,56 +121,6 @@ davevalues = []
 
 # SUM
 totalvalues = []
-
-# Write Button Text
-pen.clear()
-pen.setposition(screenMaxX - 127, 190)
-pen.write("Wavelength = " + str(wavelength), font=font_12)
-
-pen.setposition(screenMaxX - 92, 120)
-pen.write("Length = " + str(length), font=font_12)
-
-pen.setposition(screenMaxX - 93, 155)
-pen.write("+", font=font_24)
-
-pen.setposition(screenMaxX - 40, 155)
-pen.write("-", font=font_24)
-
-pen.setposition(screenMaxX - 93, 85)
-pen.write("+", font=font_24)
-
-pen.setposition(screenMaxX - 40, 85)
-pen.write("-", font=font_24)
-
-# Incident Wave
-pen.setposition(screenMaxX - 115, 47)
-pen.write("Incident", font=font_12)
-pen.setposition(screenMaxX - 105, 32)
-pen.write("Wave", font=font_12)
-
-# First Reflection
-pen.setposition(screenMaxX - 108, 8)
-pen.write("First", font=font_12)
-pen.setposition(screenMaxX - 120, -7)
-pen.write("Reflection", font=font_12)
-
-# Second Reflection
-pen.setposition(screenMaxX - 115, -35)
-pen.write("Second", font=font_12)
-pen.setposition(screenMaxX - 120, -50)
-pen.write("Reflection", font=font_12)
-
-# Third Reflection
-pen.setposition(screenMaxX - 108, -75)
-pen.write("Third", font=font_12)
-pen.setposition(screenMaxX - 120, -90)
-pen.write("Reflection", font=font_12)
-
-# Total Interference
-pen.setposition(screenMaxX - 108, -115)
-pen.write("Total", font=font_12)
-pen.setposition(screenMaxX - 133, -130)
-pen.write("Interference", font=font_12)
 
 
 # --------------------------------
@@ -296,7 +245,6 @@ def toggle_second_reflection(loc):
         mousex = 0
         mousey = 0
 
-
 # --------------------------------
 #       Toggle Third Reflection
 # --------------------------------
@@ -338,7 +286,7 @@ tim = 0
 while tim < 1000:
     screen.onscreenclick(getposition)
 
-    # Place Buttons
+# Place Buttons
     button([screenMaxX - 50, 150], change_wavelength(-0.5, [screenMaxX - 50, 150]), wavelength_minus_turtle)
     button([screenMaxX - 100, 150], change_wavelength(0.5, [screenMaxX - 100, 150]), wavelength_plus_turtle)
     button([screenMaxX - 50, 80], change_length(-1, [screenMaxX - 50, 80]), length_minus_turtle)
@@ -349,6 +297,8 @@ while tim < 1000:
     button([screenMaxX - 50, -90], toggle_third_reflection([screenMaxX - 50, -90]), third)
     button([screenMaxX - 50, -130], toggle_sum([screenMaxX - 50, -130]), sum_turtle)
 
+
+# Write Button Text
     pen.clear()
     pen.setposition(screenMaxX - 127, 190)
     pen.write("Wavelength = " + str(wavelength), font=font_12)
@@ -356,16 +306,58 @@ while tim < 1000:
     pen.setposition(screenMaxX - 92, 120)
     pen.write("Length = " + str(length), font=font_12)
 
-    # Line?
+    pen.setposition(screenMaxX - 93, 155)
+    pen.write("+", font=font_24)
+
+    pen.setposition(screenMaxX - 40, 155)
+    pen.write("-", font=font_24)
+
+    pen.setposition(screenMaxX - 93, 85)
+    pen.write("+", font=font_24)
+
+    pen.setposition(screenMaxX - 40, 85)
+    pen.write("-", font=font_24)
+
+# Incident Wave
+    pen.setposition(screenMaxX - 115, 47)
+    pen.write("Incident", font=font_12)
+    pen.setposition(screenMaxX - 105, 32)
+    pen.write("Wave", font=font_12)
+
+# First Reflection
+    pen.setposition(screenMaxX - 108, 8)
+    pen.write("First", font=font_12)
+    pen.setposition(screenMaxX - 120, -7)
+    pen.write("Reflection", font=font_12)
+
+# Second Reflection
+    pen.setposition(screenMaxX - 115, -35)
+    pen.write("Second", font=font_12)
+    pen.setposition(screenMaxX - 120, -50)
+    pen.write("Reflection", font=font_12)
+
+# Third Reflection
+    pen.setposition(screenMaxX - 108, -75)
+    pen.write("Third", font=font_12)
+    pen.setposition(screenMaxX - 120, -90)
+    pen.write("Reflection", font=font_12)
+
+# Total Interference
+    pen.setposition(screenMaxX - 108, -115)
+    pen.write("Total", font=font_12)
+    pen.setposition(screenMaxX - 133, -130)
+    pen.write("Interference", font=font_12)
+
+# Dot?
     pen.setposition(length - 150, -60)
     pen.pendown()
     pen.setposition(length - 150, 60)
     pen.penup()
 
-    # Clear Turtles
+# Clear Turtles
 
     for turtle in turtles[-5:]:
-        turtle.clear()
+      turtle.clear()
 
     # Albert
     if initial_state != False:
@@ -398,7 +390,7 @@ while tim < 1000:
         davevalues = []
         for i in range(1, length):
             y = dave.setposition(i - 150, 50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-                tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
+            tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
             dave.pendown()
             davevalues.append(y)
 
@@ -408,17 +400,25 @@ while tim < 1000:
         for i in range(1, length):
             y = total.setposition(i - 150, 50 * np.sin(1 / wavelength * 2 * np.pi * i - 0.25 * tim) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-                                      tim - length * (50.3 / wavelength) + 13.2)) +
+                                  tim - length * (50.3 / wavelength) + 13.2)) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i - 0.25 * (
-                                      tim - length * (50.3 / wavelength) + 1.2)) +
+                                  tim - length * (50.3 / wavelength) + 1.2)) +
                                   50 * np.sin(1 / wavelength * 2 * np.pi * i + 0.25 * (
-                                      tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
+                                  tim - (length * (50.3 / wavelength) + length * (50.3 / wavelength) + 10.7))))
             total.pendown()
             totalvalues.append(y)
 
-    for turtle in turtles[-5:]:
-        turtle.penup()
-        turtle.setposition(-150, 0)
+    albert.penup()
+    beatrice.penup()
+    clyde.penup()
+    dave.penup()
+    total.penup()
+
+    albert.setposition(-150, 0)
+    beatrice.setposition(-150, 0)
+    clyde.setposition(-150, 0)
+    dave.setposition(-150, 0)
+    total.setposition(-150, 0)
 
     albert.update()
     beatrice.update()
@@ -430,4 +430,3 @@ while tim < 1000:
     tim += 1
     if tim >= np.pi * 100:
         tim = 0
-
