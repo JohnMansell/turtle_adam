@@ -276,7 +276,7 @@ def toggle_sum(loc):
         mousey = 0
 
 
-turtle.tracer(0, 0)
+# turtle.tracer(0, 0)
 
 # ================================
 #       Handle Button Clicks
