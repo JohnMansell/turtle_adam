@@ -416,9 +416,9 @@ while tim < 1000:
             total.pendown()
             totalvalues.append(y)
 
-    for john in turtles[-5:]:
-        john.penup()
-        john.setposition(-150, 0)
+    for turtle in turtles[-5:]:
+        turtle.penup()
+        turtle.setposition(-150, 0)
 
     albert.update()
     beatrice.update()
@@ -430,3 +430,4 @@ while tim < 1000:
     tim += 1
     if tim >= np.pi * 100:
         tim = 0
+
